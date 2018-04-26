@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cari</title>
+</head>
+<body>
+
+<div th:if="${#httpServletRequest.isUserInRole('USER') or #httpServletRequest.isUserInRole('ADMIN')}">
+    <form th:action="@{/student/view/(npm=${npm})}" method="get">
+        <div class="row">
+            <div class="col-md-2">
+                <label for="npm">NPM</label>
+            </div>
+            <div class="col-md-4">
+                <input type="text" id="npm" name="npm" class="form-control"/>
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit" value="save" class="btn btn-primary ">Lihat</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

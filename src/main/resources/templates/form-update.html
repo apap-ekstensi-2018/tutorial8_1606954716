@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update student</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/datatables.min.css" />
+    <script src="/js/datatables.min.js"></script>
+    <script src="/js/data.js"></script>
+</head>
+
+<body>
+
+<div th:replace="fragments/fragment :: header"></div>
+<h1 class="page-header">Problem Editor</h1>
+
+<form action="/student/update/submit" th:object="${student}" method="post">
+    <div class="row">
+        <div class="col-md-2">
+            <label for="npm">NPM</label>
+        </div>
+        <div class="col-md-10">
+            <input type="text" name="npm" readonly="true" th:field="${student.npm}"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label for="name">Name</label>
+        </div>
+        <div class="col-md-10">
+            <input type="text" name="name" th:field="${student.name}"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label for="gpa">GPA</label>
+        </div>
+        <div class="col-md-10">
+            <input type="text" name="gpa" th:field="${student.gpa}"/>
+        </div>
+    </div>
+
+    <div>
+        <button type="submit" name="action" value="save" class="btn btn-primary">Update</button>
+    </div>
+</form>
+<div th:replace="fragments/fragment :: footer"></div>
+</body>
+
+</html>
+

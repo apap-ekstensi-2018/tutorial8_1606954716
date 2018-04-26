@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Index</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/css/datatables.min.css" />
+	<script src="/js/datatables.min.js"></script>
+	<script src="/js/data.js"></script>
+
+</head>
+<body>
+<h2 th:text=" 'Login as ' + ${#httpServletRequest.remoteUser}">Login as</h2>
+<form th:action="@{/logout}" method="post">
+	<input type="submit" value="Sign Out"/>
+</form>
+<div th:replace="fragments/fragment :: header"></div>
+<h2>Welcome</h2>
+<a href="/login">Login</a><br/>
+<a th:if="${#httpServletRequest.isUserInRole('ADMIN')}" href="/student/viewall">View All Student</a><br/>
+<div th:replace="fragments/fragment :: footer"></div>
+</body>
+</html>
